@@ -103,12 +103,21 @@
                     index[slide].style.display = "flex";
                 }
             }
+            document.getElementById('container').addEventListener("keydown", (event) => {
+  if (event.keyCode === 37) {
+    document.getElementById('left').click()
+  } else if (event.keyCode === 39) {
+    document.getElementById('right').click()
+  }
+  // do something
+});
         };
+
     </script>
 </head>
 
 <body onload="mySlider()">
-    <div class="container">
+    <div id="container" class="container">
 
         <div><button id="left"><span>&#8592;</span></button></div>
         <div class="wrapper">
