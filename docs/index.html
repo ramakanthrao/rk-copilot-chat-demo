@@ -169,7 +169,7 @@
         }
         function changeImageSize() {
 
-            const images = document.querySelectorAll('img').forEach(box => {
+            const images = document.querySelectorAll('.image>img').forEach(box => {
                 box.style.width = document.querySelector('#img-size').value + '% !important';
             });
 
