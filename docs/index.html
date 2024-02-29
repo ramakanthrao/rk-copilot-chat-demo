@@ -39,7 +39,7 @@
             overflow: hidden;
         }
         .image > img{
-            width: 70% !important;
+            width: 65% !important;
         }
 
         /* button  */
@@ -82,11 +82,11 @@
             // button to the right;
             document.getElementById('right').onclick = function Right() {
                 if (slide == length - 1) {
-                    index[0].style.display = "block";
+                    index[0].style.display = "flex";
                     index[slide].style.display = "none";
                     slide = 0;
                 } else {
-                    index[slide + 1].style.display = "block";
+                    index[slide + 1].style.display = "flex";
                     index[slide].style.display = "none";
                     slide++;
                 }
@@ -97,11 +97,11 @@
                     index[slide].style.display = "none";
                     slide = length;
                     slide--;
-                    index[slide].style.display = "block";
+                    index[slide].style.display = "flex";
                 } else {
                     index[slide].style.display = "none";
                     slide--;
-                    index[slide].style.display = "block";
+                    index[slide].style.display = "flex";
                 }
             }
         };
