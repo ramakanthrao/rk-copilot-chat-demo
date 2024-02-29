@@ -10,9 +10,11 @@
             margin: 0;
             padding: 0;
         }
+
         body {
             background-color: #000;
         }
+
         /* reset button */
 
         button {
@@ -37,7 +39,8 @@
             width: 100%;
             overflow: hidden;
         }
-        .image > img{
+
+        .image>img {
             width: 65% !important;
         }
 
@@ -60,6 +63,21 @@
             right: 0;
         }
 
+        #content,
+        #code {
+            position: absolute;
+            top: 50%;
+            font-size: 4rem;
+            color: #adb5bd;
+            opacity: 0.3;
+            font-weight: 700;
+            text-align: center;
+            /*font-size: 40vw;*/
+            line-height: 125%;
+        }
+
+
+
         /* button hover */
 
         #left:hover,
@@ -67,13 +85,15 @@
             opacity: 0.8;
             transition: ease 0.5s;
         }
+
         .wrapper {
             padding-top: 50px;
         }
     </style>
     <script>
-        function mySlider() {
-            var index = document.getElementsByClassName('image');
+        var activeContainer = 'container1';
+        function mySlider(containerid) {
+            var index = document.querySelectorAll('#' + containerid + ' .image');
             var length = index.length;
             var slide = 0;
 
@@ -82,7 +102,7 @@
                 index[i].style.display = 'none';
             }
             // button to the right;
-            document.getElementById('right').onclick = function Right() {
+            document.querySelector('#' + containerid + ' .right').onclick = function Right() {
                 if (slide == length - 1) {
                     index[0].style.display = "flex";
                     index[slide].style.display = "none";
@@ -94,7 +114,7 @@
                 }
             }
             // button to the left;
-            document.getElementById('left').onclick = function Left() {
+            document.querySelector('#' + containerid + ' .left').onclick = function Left() {
                 if (slide <= 0) {
                     index[slide].style.display = "none";
                     slide = length;
@@ -106,95 +126,128 @@
                     index[slide].style.display = "flex";
                 }
             }
-            document.getElementById('container').addEventListener("keydown", (event) => {
-  if (event.keyCode === 37) {
-    document.getElementById('left').click()
-  } else if (event.keyCode === 39) {
-    document.getElementById('right').click()
-  }
-  // do something
-});
+
         };
 
+        function onLoadfn() {
+            mySlider('container1')
+            mySlider('container2')
+            document.querySelector('#container2').style.display = "none";
+            document.querySelector('#app').addEventListener("keydown", (event) => {
+                if (event.keyCode === 37) {
+                    document.querySelector('#' + activeContainer + ' .left').click()
+                } else if (event.keyCode === 39) {
+                    document.querySelector('#' + activeContainer + ' .right').click()
+                }
+                // do something
+            });
+        }
+
+        function codeOn() {
+            activeContainer = 'container1';
+            document.querySelector('#container2').style.display = "none";
+            document.querySelector('#container1').style.display = "block";
+        }
+
+        function contentOn() {
+            activeContainer = 'container2';
+            document.querySelector('#container1').style.display = "none";
+            document.querySelector('#container2').style.display = "block";
+        }
     </script>
 </head>
 
-<body onload="mySlider()">
-    <div id="container" class="container">
-
-        <div><button id="left"><span>&#8592;</span></button></div>
-        <div class="wrapper">
-            <div class="image">
-                <img src="img/CHAT_JQ_TO_REACT_0_1.PNG" />
-            </div>
-            <div class="image">
-                <img src="img/CHAT_JQ_TO_REACT_0_2.PNG" />
-            </div>
-            <div class="image">
-                <img src="img/CHAT_JQ_TO_REACT_0_3.PNG" />
-            </div>
-            <div class="image">
-                <img src="img/CHAT_JQ_TO_REACT_0_4.PNG" />
-
-            </div>
-            <div class="image">
-                <img src="img/CHAT_JQ_TO_REACT_0_5.PNG" />
-            </div>
-            <div class="image">
-                <img src="img/CHAT_JQ_TO_REACT_0_6.PNG" />
-            </div>
-            <div class="image">
-                <img src="img/CHAT_JQ_TO_REACT_0_7.PNG" />
-            </div>
-            <div class="image">
-                <img src="img/CHAT_JQ_TO_REACT_0_8.PNG" />
-            </div>
-            <div class="image">
-                <img src="img/CHAT_JQ_TO_REACT_0_9.PNG" />
-            </div>
-            <div class="image">
-                <img src="img/CHAT_JQ_TO_REACT_0_10.PNG" />
-            </div>
-            <div class="image">
-                <img src="img/CHAT_JQ_TO_REACT_1.PNG" />
-            </div>
-            <div class="image">
-                <img src="img/CHAT_JQ_TO_REACT_2.PNG" />
-            </div>
-            <div class="image">
-                <img src="img/CHAT_JQ_TO_REACT_3.PNG" />
-            </div>
-            <div class="image">
-                <img src="img/CHAT_JQ_TO_REACT_4.PNG" />
-            </div>
-            <div class="image">
-                <img src="img/CHAT_JQ_TO_REACT_5.PNG" />
-            </div>
-            <div class="image">
-                <img src="img/CHAT_JQ_TO_REACT_6.PNG" />
-            </div>
-            <div class="image">
-                <img src="img/CHAT_JQ_TO_REACT_7.PNG" />
-            </div>
-            <div class="image">
-                <img src="img/CHAT_JQ_TO_REACT_8.PNG" />
-            </div>
-            <div class="image">
-                <img src="img/CHAT_JQ_TO_REACT_9.PNG" />
-            </div>
-            <div class="image">
-                <img src="img/CHAT_JQ_TO_REACT_10.PNG" />
-            </div>
-            <div class="image">
-                <img src="img/CHAT_JQ_TO_REACT_11.PNG" />
-            </div>
-            <div class="image">
-                <img src="img/CHAT_JQ_TO_REACT_12.PNG" />
-            </div>
+<body onload="onLoadfn()">
+    <div id="app">
+        <div class="menu-bar" id="menu-bar">
+            <div><button id="content"><span>&#9776;</span></button></div>
+            <div><button id="code"><span>{&nbsp;}</span></button></div>
         </div>
+        <div id="container1" class="container">
 
-        <div><button id="right"><span>&#8594;</span></button></div>
+            <div><button id="left" class="left"><span>&#8592;</span></button></div>
+            <div class="wrapper">
+                <div class="image">
+                    <img src="img/CHAT_JQ_TO_REACT_0_1.PNG" />
+                </div>
+                <div class="image">
+                    <img src="img/CHAT_JQ_TO_REACT_0_2.PNG" />
+                </div>
+                <div class="image">
+                    <img src="img/CHAT_JQ_TO_REACT_0_3.PNG" />
+                </div>
+                <div class="image">
+                    <img src="img/CHAT_JQ_TO_REACT_0_4.PNG" />
 
+                </div>
+                <div class="image">
+                    <img src="img/CHAT_JQ_TO_REACT_0_5.PNG" />
+                </div>
+                <div class="image">
+                    <img src="img/CHAT_JQ_TO_REACT_0_6.PNG" />
+                </div>
+                <div class="image">
+                    <img src="img/CHAT_JQ_TO_REACT_0_7.PNG" />
+                </div>
+                <div class="image">
+                    <img src="img/CHAT_JQ_TO_REACT_0_8.PNG" />
+                </div>
+                <div class="image">
+                    <img src="img/CHAT_JQ_TO_REACT_0_9.PNG" />
+                </div>
+                <div class="image">
+                    <img src="img/CHAT_JQ_TO_REACT_0_10.PNG" />
+                </div>
+            </div>
+
+            <div><button id="right" class="right"><span>&#8594;</span></button></div>
+
+        </div>
+        <div id="container2" class="container">
+
+            <div><button id="left" class="left"><span>&#8592;</span></button></div>
+            <div class="wrapper">
+                <div class="image">
+                    <img src="img/CHAT_JQ_TO_REACT_1.PNG" />
+                </div>
+                <div class="image">
+                    <img src="img/CHAT_JQ_TO_REACT_2.PNG" />
+                </div>
+                <div class="image">
+                    <img src="img/CHAT_JQ_TO_REACT_3.PNG" />
+                </div>
+                <div class="image">
+                    <img src="img/CHAT_JQ_TO_REACT_4.PNG" />
+                </div>
+                <div class="image">
+                    <img src="img/CHAT_JQ_TO_REACT_5.PNG" />
+                </div>
+                <div class="image">
+                    <img src="img/CHAT_JQ_TO_REACT_6.PNG" />
+                </div>
+                <div class="image">
+                    <img src="img/CHAT_JQ_TO_REACT_7.PNG" />
+                </div>
+                <div class="image">
+                    <img src="img/CHAT_JQ_TO_REACT_8.PNG" />
+                </div>
+                <div class="image">
+                    <img src="img/CHAT_JQ_TO_REACT_9.PNG" />
+                </div>
+                <div class="image">
+                    <img src="img/CHAT_JQ_TO_REACT_10.PNG" />
+                </div>
+                <div class="image">
+                    <img src="img/CHAT_JQ_TO_REACT_11.PNG" />
+                </div>
+                <div class="image">
+                    <img src="img/CHAT_JQ_TO_REACT_12.PNG" />
+                </div>
+            </div>
+
+            <div><button id="right" class="right"><span>&#8594;</span></button></div>
+
+        </div>
     </div>
 </body>
 
