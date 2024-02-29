@@ -65,9 +65,8 @@
 
         #content,
         #code {
-            position: absolute;
-            top: 50%;
-            font-size: 4rem;
+            position: relative;
+            font-size: 2rem;
             color: #adb5bd;
             opacity: 0.3;
             font-weight: 700;
@@ -88,6 +87,13 @@
 
         .wrapper {
             padding-top: 50px;
+        }
+        .menu-bar {
+            display: block;
+            position: absolute;
+            top:0;
+            left:25px;
+            width: 125px;
         }
     </style>
     <script>
@@ -160,8 +166,8 @@
 <body onload="onLoadfn()">
     <div id="app">
         <div class="menu-bar" id="menu-bar">
-            <div><button id="content"><span>&#9776;</span></button></div>
-            <div><button id="code"><span>{&nbsp;}</span></button></div>
+            <button id="content"><span>&#9776;</span></button>
+            <button id="code"><span>{&nbsp;}</span></button>
         </div>
         <div id="container1" class="container">
 
