@@ -1,0 +1,39 @@
+*{
+	margin: 0;
+	padding: 0;
+	border: 0 none;
+	outline: 0;
+}
+
+img{
+	display: block;
+	max-width: 600px;
+  max-height: 550px;
+	overflow: hidden;
+}
+
+#gallery{
+	overflow: hidden;
+}
+
+#gallery img{
+	position: absolute;
+}
+
+#next{
+	display: block;
+	width: 47px;
+	height: 43px;
+	background: url(img/arrow.png);
+	position: absolute;
+	top: 550px;
+	left: 600px;
+}
+
+#next:hover{
+	background: url(img/arrowmo.png);
+}
+
+.clear{
+	clear: both;
+}

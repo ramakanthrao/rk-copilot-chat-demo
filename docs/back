@@ -1,4 +1,34 @@
-git <!DOCTYPE html>
+<!DOCTYPE html>  
+<html lang="en-GB">  
+	<head>
+		<title>iTunes slider</title>
+		<link rel="stylesheet" href="css/style.css" type="text/css" />
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript" src="js/slider.js"></script>
+
+	</head>
+
+	<body>
+    <div id="gallery">
+      <img src="img/CHAT_JQ_TO_REACT_0_1.PNG" />
+      <img src="img/CHAT_JQ_TO_REACT_0_2.PNG" />
+      <img src="img/CHAT_JQ_TO_REACT_0_3.PNG" />
+      <img src="img/CHAT_JQ_TO_REACT_0_4.PNG" />
+      <img src="img/CHAT_JQ_TO_REACT_0_5.PNG" />
+      <img src="img/CHAT_JQ_TO_REACT_0_6.PNG" />
+      <img src="img/CHAT_JQ_TO_REACT_0_7.PNG" />
+      <img src="img/CHAT_JQ_TO_REACT_0_8.PNG" />
+      <img src="img/CHAT_JQ_TO_REACT_0_9.PNG" />
+      <img src="img/CHAT_JQ_TO_REACT_0_10.PNG" />
+    </div>
+
+    <a href="#" id="next"></a>
+  </div>
+        
+	</body>
+</html>
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
