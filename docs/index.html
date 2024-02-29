@@ -1,13 +1,110 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8">
     <title>JavaScript</title>
     <link rel="stylesheet" href="docs/css/style2.css" type="text/css" />
-	<script type="text/javascript" src="docs/js/jsSlider.js"></script>
+    <script type="text/javascript" src="docs/js/jsSlider.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        /* reset button */
+
+        button {
+            background: none;
+            border: none;
+        }
+
+        button:active,
+        button:focus {
+            outline: none !important;
+        }
+
+        button::-moz-focus-inner {
+            border: 0 !important;
+        }
+
+        /* fullscreen div */
+
+        .image {
+            display: block;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        /* button  */
+
+        #left,
+        #right {
+            position: absolute;
+            top: 50%;
+            font-size: 4rem;
+            color: #adb5bd;
+            opacity: 0.3;
+            font-weight: 700;
+            text-align: center;
+            /*font-size: 40vw;*/
+            line-height: 125%;
+        }
+
+        #right {
+            right: 0;
+        }
+
+        /* button hover */
+
+        #left:hover,
+        #right:hover {
+            opacity: 0.8;
+            transition: ease 0.5s;
+        }
+    </style>
+    <script>
+        function mySlider() {
+            var index = document.getElementsByClassName('image');
+            var length = index.length;
+            var slide = 0;
+
+            // we run through the collection of elements and assign display: none to them;
+            for (var i = 1; i < index.length; i++) {
+                index[i].style.display = 'none';
+            }
+            // button to the right;
+            document.getElementById('right').onclick = function Right() {
+                if (slide == length - 1) {
+                    index[0].style.display = "block";
+                    index[slide].style.display = "none";
+                    slide = 0;
+                } else {
+                    index[slide + 1].style.display = "block";
+                    index[slide].style.display = "none";
+                    slide++;
+                }
+            }
+            // button to the left;
+            document.getElementById('left').onclick = function Left() {
+                if (slide <= 0) {
+                    index[slide].style.display = "none";
+                    slide = length;
+                    slide--;
+                    index[slide].style.display = "block";
+                } else {
+                    index[slide].style.display = "none";
+                    slide--;
+                    index[slide].style.display = "block";
+                }
+            }
+        };
+    </script>
 </head>
-<body>
+
+<body onload="mySlider()">
     <div class="wrapper">
         <div class="image">
             <img src="img/CHAT_JQ_TO_REACT_0_1.PNG" />
@@ -34,4 +131,5 @@
         <button id="right"><span>&#8592;</span></button>
     </div>
 </body>
+
 </html>
