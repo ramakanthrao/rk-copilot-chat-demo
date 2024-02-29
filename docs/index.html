@@ -41,7 +41,7 @@
         }
 
         .image>img {
-            width: 65% !important;
+            width: 65%;
         }
 
         /* button  */
@@ -170,7 +170,7 @@
         function changeImageSize() {
 
             const images = document.querySelectorAll('img').forEach(box => {
-                box.style.width = document.querySelector('#img-size').value + '%';
+                box.style.width = document.querySelector('#img-size').value + '% !important';
             });
 
 
