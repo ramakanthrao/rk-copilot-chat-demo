@@ -89,13 +89,15 @@
         .wrapper {
             padding-top: 50px;
         }
+
         .menu-bar {
             display: block;
             position: absolute;
-            top:16px;
-            right:0;
+            top: 16px;
+            right: 0;
             width: 125px;
         }
+
         .menu-bar .img-input {
             width: 16px;
             border: none;
@@ -165,6 +167,14 @@
             document.querySelector('#container1').style.display = "none";
             document.querySelector('#container2').style.display = "block";
         }
+        function changeImageSize() {
+
+            const images = document.querySelectorAll('img').forEach(box => {
+                box.style.width = document.querySelector('#img-size').value + '%';
+            });
+
+
+        }
     </script>
 </head>
 
@@ -172,7 +182,14 @@
     <div id="app">
         <div class="menu-bar" id="menu-bar">
             <button id="content" onclick="contentOn()"><span>&#9776;</span></button>
-            <button id="code" onclick="codeOn()"><span>{</span><span><input type="number" id="img-size" class="img-input" name="fname"></span><span>}</span></button>
+            <button id="code" onclick="codeOn()">
+                <span>{</span>
+                <span>
+                    <input type="number" id="img-size" class="img-input" name="imageInput" onchange="changeImageSize()"
+                        min="50" max="100"></input>
+                </span>
+                <span>}</span>
+            </button>
         </div>
         <div id="container1" class="container">
 
