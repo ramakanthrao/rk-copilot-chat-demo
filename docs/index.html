@@ -10,7 +10,9 @@
             margin: 0;
             padding: 0;
         }
-
+        body {
+            background-color: #000;
+        }
         /* reset button */
 
         button {
@@ -34,6 +36,9 @@
             width: 100%;
             height: 100vh;
             overflow: hidden;
+        }
+        .image > img{
+            width: 70% !important;
         }
 
         /* button  */
@@ -104,33 +109,33 @@
 
 <body onload="mySlider()">
     <div class="container">
-        
+
         <div><button id="left"><span>&#8592;</span></button></div>
-    <div class="wrapper">
-        <div class="image">
-            <img src="img/CHAT_JQ_TO_REACT_0_1.PNG" />
-        </div>
-        <div class="image">
-            <img src="img/CHAT_JQ_TO_REACT_0_2.PNG" />
-        </div>
-        <div class="image">
-            <img src="img/CHAT_JQ_TO_REACT_0_3.PNG" />
-        </div>
-        <div class="image">
-            <img src="img/CHAT_JQ_TO_REACT_0_4.PNG" />
+        <div class="wrapper">
+            <div class="image">
+                <img src="img/CHAT_JQ_TO_REACT_0_1.PNG" />
+            </div>
+            <div class="image">
+                <img src="img/CHAT_JQ_TO_REACT_0_2.PNG" />
+            </div>
+            <div class="image">
+                <img src="img/CHAT_JQ_TO_REACT_0_3.PNG" />
+            </div>
+            <div class="image">
+                <img src="img/CHAT_JQ_TO_REACT_0_4.PNG" />
 
+            </div>
+            <div class="image">
+                <img src="img/CHAT_JQ_TO_REACT_0_5.PNG" />
+            </div>
+            <div class="image">
+                <img src="img/CHAT_JQ_TO_REACT_0_6.PNG" />
+            </div>
         </div>
-        <div class="image">
-            <img src="img/CHAT_JQ_TO_REACT_0_5.PNG" />
-        </div>
-        <div class="image">
-            <img src="img/CHAT_JQ_TO_REACT_0_6.PNG" />
-        </div>
+
+        <div><button id="right"><span>&#8594;</span></button></div>
+
     </div>
-    
-    <div><button id="right"><span>&#8594;</span></button></div>
-
-</div>
 </body>
 
 </html>
